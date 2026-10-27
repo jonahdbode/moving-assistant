@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Penske Personal Moving Assistant</title>
+  <link rel="stylesheet" href="style.css?v=20260921" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../prototype/index.html">PENSKE</a>
+    <div>
+      <p class="eyebrow">Personal Moving Assistant</p>
+      <h1>Your move, in context.</h1>
+    </div>
+    <span class="status" id="corpus-status">Loading sources...</span>
+  </header>
+  <nav class="demo-strip" aria-label="Guided scenarios">
+    <div><p class="eyebrow">Guided scenarios</p><strong>Choose a conversation to explore</strong></div>
+    <button class="scenario-button active" type="button" data-scenario="family">Three-month move</button>
+    <button class="scenario-button" type="button" data-scenario="couch">Columbus couch pickup</button>
+  </nav>
+  <main class="app-shell">
+    <aside class="profile-panel" id="profile-panel" hidden>
+      <div class="panel-heading">
+        <p class="eyebrow">Move profile</p>
+        <h2 id="profile-heading">Make this useful to you</h2>
+      </div>
+      <label><span id="move-date-label">Move date</span><input id="move-date" type="date" /></label>
+      <label><span id="move-from-label">Moving from</span><input id="move-from" type="text" placeholder="City or ZIP" /></label>
+      <label><span id="move-to-label">Moving to</span><input id="move-to" type="text" placeholder="City or ZIP" /></label>
+      <label><span id="home-size-label">Home size</span><select id="home-size"><option value="">Choose one</option><option>Studio / 1 room</option><option>2-3 rooms</option><option>4-5 rooms</option><option>6+ rooms</option></select></label>
+      <label><span id="household-label">Household details</span><textarea id="household" rows="3" placeholder="Pets, kids, fragile items, towing..."> </textarea></label>
+      <button id="save-profile" class="primary" type="button">Update my plan</button>
+      <div class="profile-note" id="profile-summary">Tell me a little about the move and I’ll focus the guidance.</div>
+    </aside>
+    <section class="assistant-panel">
+      <div class="assistant-intro">
+        <p class="eyebrow">Grounded in Penske guidance</p>
+        <h2>Ask about planning, packing, trucks, pets or moving day.</h2>
+        <p>Answers below are retrieved from the local Penske source corpus and include links back to the original page.</p>
+      </div>
+      <div class="suggestions" id="suggestions">
+        <button type="button" data-demo="family">I am moving in 3 months to a 3-bedroom, 2-bath apartment with a cat and a Saint Bernard.</button>
+        <button type="button" data-demo="couch">My sister and I want to pick up a couch this weekend in Columbus.</button>
+      </div>
+      <div class="chat-log" id="chat-log" aria-live="polite"></div>
+      <section class="demo-workspace" id="move-plan-workspace" hidden>
+        <div class="workspace-heading">
+          <div><p class="eyebrow">Interactive timeline</p><h2>Your three-month move plan</h2></div>
+        </div>
+        <section class="move-summary" id="move-summary"></section>
+        <p class="workspace-copy">Choose a task to open its next step. Local links stay out of the way until they are useful.</p>
+        <div class="timeline" id="timeline"></div>
+        <div class="task-details" id="task-details" hidden></div>
+      </section>
+      <section class="demo-workspace" id="couch-workspace" hidden>
+        <div class="workspace-heading"><div><p class="eyebrow">Moving-Day Navigator</p><h2>Weekend couch pickup</h2></div></div>
+        <p class="workspace-copy">Compare the three couch options before reserving. 12-foot and 16-foot trucks have the following costs: $29.99/day plus $1.19/mile. Availability, rate and truck-safe routing must be confirmed in Penske’s reservation flow.</p>
+        <div class="route-controls"><label>Pickup source<select id="pickup-source"><option value="penske">Penske Truck Rental · 2470 Westbelt Dr</option><option value="self-storage">Gateway Self Storage · 750 E 11th Ave · 16-foot truck only</option></select></label><label>Starting point<input id="couch-start" value="Grandview Heights, OH" /></label><label>Unloading per stop<input id="unload-minutes" type="number" min="0" value="15" /> min</label><label><input id="avoid-highways" type="checkbox" /> Avoid highways</label><label><input id="show-clearance" type="checkbox" checked /> Show sample clearance hazards</label><button id="recalculate-couch" type="button">Recalculate estimates</button></div>
+        <div class="route-map" aria-label="Route preview"><div id="columbus-map"></div><span class="map-note">Route preview selected for the current pickup, couch location and highway setting. Clearance locations are illustrative.</span></div>
+        <div class="couch-options" id="couch-options"></div>
+        <div class="couch-actions"><a class="wizard-link" href="http://127.0.0.1:4173/?item=sofa&amp;reset=1&amp;view=couch" target="_blank" rel="noreferrer">Check couch fit in 3D</a><a class="reservation-link" href="https://www.pensketruckrental.com/" target="_blank" rel="noreferrer">Check nearby truck availability and reservation price</a></div>
+      </section>
+      <div class="chat-log followup-chat-log" id="followup-chat-log" aria-live="polite"></div>
+      <form class="chat-form" id="chat-form">
+        <input id="chat-input" type="text" autocomplete="off" placeholder="Ask a moving question..." required />
+        <button class="primary" type="submit">Ask</button>
+      </form>
+    </section>
+  </main>
+  <script src="app.js?v=20261028"></script>
+</body>
+</html>

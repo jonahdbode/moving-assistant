@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Private Move-In Document",
+  "type": "object",
+  "required": ["propertyName", "unit", "moveInDate", "steps"],
+  "properties": {
+    "propertyName": {"type": "string"},
+    "residentNames": {"type": "string"},
+    "unit": {"type": "string"},
+    "moveInDate": {"type": "string", "description": "ISO date or source document date"},
+    "fundsDueDate": {"type": "string"},
+    "totalDue": {"type": "number"},
+    "paymentInstructions": {"type": "string"},
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "title", "task"],
+        "properties": {
+          "step": {"type": "integer", "minimum": 1},
+          "title": {"type": "string"},
+          "task": {"type": "string"},
+          "dueDate": {"type": "string"},
+          "contact": {"type": "string"},
+          "documentsToSend": {"type": "array", "items": {"type": "string"}},
+          "completed": {"type": "boolean"}
+        }
+      }
+    },
+    "sourceFile": {"type": "string"},
+    "private": {"const": true}
+  }
+}
