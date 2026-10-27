@@ -1,41 +1,30 @@
-# Moving Assistant
+# Moving Assistant Demo
 
-A Penske-focused moving assistant prototype with two guided experiences:
+A static GitHub Pages bundle containing two browser-only prototypes:
 
-- A three-month apartment move conversation that produces an interactive timeline.
-- A Columbus couch pickup conversation with route comparisons, mileage estimates, clearance warnings, and a couch-only 3D truck handoff.
+- `assistant/` — guided move planning, timeline, route comparison and local scripted responses
+- `wizard/` — 3D packing visualization and truck comparison
 
-## Run locally
+The bundle does not require VS Code, Python, Node, an API key or a server. It is intended for demonstration and exploration. Estimates and route examples are illustrative and are not live rental pricing, availability or safety instructions.
 
-Start the assistant locally:
+## Publish with GitHub Pages
 
-```powershell
-$env:PORT = "4173"
-python .\assistant\server.py
-```
+1. Create or open the personal GitHub repository where this demo should live.
+2. Copy the contents of this folder into the repository root. Keep `index.html`, `assistant/`, and `wizard/` together.
+3. Commit and push the files to the default branch.
+4. In GitHub, open **Settings → Pages**.
+5. Under **Build and deployment**, choose **Deploy from a branch**.
+6. Select the default branch and the `/ (root)` folder, then save.
+7. Wait for the Pages deployment, then open the URL GitHub provides.
 
-Open `http://127.0.0.1:4173/`.
+The main URL opens `index.html`; the two demo routes are linked relatively, so they also work when the repository is published as a project site such as `https://username.github.io/repository-name/`.
 
-For temporary LAN sharing, use the computer's LAN IP and bind to all interfaces:
+## Local preview
 
-```powershell
-$env:HOST = "0.0.0.0"
-$env:PORT = "4173"
-python .\assistant\server.py
-```
-
-Allow Python through Windows Firewall if prompted, then share `http://<computer-lan-ip>:4173/`. Start the simulator on port `4182` as shown below and share the same LAN IP for its link.
-
-Start the 3D truck prototype separately:
+From this folder, run a simple static server if desired:
 
 ```powershell
-python -m http.server 4173 --directory .\prototype
+python -m http.server 8000
 ```
 
-Open `http://127.0.0.1:4173/`.
-
-## RAG architecture
-
-The assistant uses local Penske corpus retrieval with optional Bedrock, SageAI, or OpenAI-compatible generation and web-search fallback. See [assistant/README.md](assistant/README.md) for provider configuration and private-document handling.
-
-Do not commit `.env`, credentials, private move-in documents, or generated Python cache files.
+Then open `http://127.0.0.1:8000/`.

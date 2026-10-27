@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Penske Personal Moving Assistant</title>
+  <title>Personal Moving Assistant Demo</title>
   <link rel="stylesheet" href="style.css?v=20260921" />
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="../prototype/index.html">PENSKE</a>
+    <a class="brand" href="../index.html">MOVEMATE</a>
     <div>
       <p class="eyebrow">Personal Moving Assistant</p>
       <h1>Your move, in context.</h1>
@@ -36,9 +36,9 @@
     </aside>
     <section class="assistant-panel">
       <div class="assistant-intro">
-        <p class="eyebrow">Grounded in Penske guidance</p>
+        <p class="eyebrow">Grounded in MoveMate guidance</p>
         <h2>Ask about planning, packing, trucks, pets or moving day.</h2>
-        <p>Answers below are retrieved from the local Penske source corpus and include links back to the original page.</p>
+        <p>Explore a static demo of contextual planning, packing guidance and move-day decisions.</p>
       </div>
       <div class="suggestions" id="suggestions">
         <button type="button" data-demo="family">I am moving in 3 months to a 3-bedroom, 2-bath apartment with a cat and a Saint Bernard.</button>
@@ -56,11 +56,11 @@
       </section>
       <section class="demo-workspace" id="couch-workspace" hidden>
         <div class="workspace-heading"><div><p class="eyebrow">Moving-Day Navigator</p><h2>Weekend couch pickup</h2></div></div>
-        <p class="workspace-copy">Compare the three couch options before reserving. 12-foot and 16-foot trucks have the following costs: $29.99/day plus $1.19/mile. Availability, rate and truck-safe routing must be confirmed in Penske’s reservation flow.</p>
-        <div class="route-controls"><label>Pickup source<select id="pickup-source"><option value="penske">Penske Truck Rental · 2470 Westbelt Dr</option><option value="self-storage">Gateway Self Storage · 750 E 11th Ave · 16-foot truck only</option></select></label><label>Starting point<input id="couch-start" value="Grandview Heights, OH" /></label><label>Unloading per stop<input id="unload-minutes" type="number" min="0" value="15" /> min</label><label><input id="avoid-highways" type="checkbox" /> Avoid highways</label><label><input id="show-clearance" type="checkbox" checked /> Show sample clearance hazards</label><button id="recalculate-couch" type="button">Recalculate estimates</button></div>
+        <p class="workspace-copy">Compare the three couch options before reserving. 12-foot and 16-foot trucks have the following costs: $29.99/day plus $1.19/mile. Availability, rate and truck-safe routing must be confirmed in MoveMate’s reservation flow.</p>
+        <div class="route-controls"><label>Pickup source<select id="pickup-source"><option value="movemate">MoveMate Truck Rental · 2470 Westbelt Dr</option><option value="self-storage">Gateway Self Storage · 750 E 11th Ave · 16-foot truck only</option></select></label><label>Starting point<input id="couch-start" value="Grandview Heights, OH" /></label><label>Unloading per stop<input id="unload-minutes" type="number" min="0" value="15" /> min</label><label><input id="avoid-highways" type="checkbox" /> Avoid highways</label><label><input id="show-clearance" type="checkbox" checked /> Show sample clearance hazards</label><button id="recalculate-couch" type="button">Recalculate estimates</button></div>
         <div class="route-map" aria-label="Route preview"><div id="columbus-map"></div><span class="map-note">Route preview selected for the current pickup, couch location and highway setting. Clearance locations are illustrative.</span></div>
         <div class="couch-options" id="couch-options"></div>
-        <div class="couch-actions"><a class="wizard-link" href="http://127.0.0.1:4173/?item=sofa&amp;reset=1&amp;view=couch" target="_blank" rel="noreferrer">Check couch fit in 3D</a><a class="reservation-link" href="https://www.pensketruckrental.com/" target="_blank" rel="noreferrer">Check nearby truck availability and reservation price</a></div>
+        <div class="couch-actions"><a class="wizard-link" href="../wizard/index.html?item=sofa&amp;reset=1&amp;view=couch" target="_blank" rel="noreferrer">Check couch fit in 3D</a><a class="reservation-link" href="https://www.google.com/search?q=moving+truck+planning" target="_blank" rel="noreferrer">Research truck availability and pricing</a></div>
       </section>
       <div class="chat-log followup-chat-log" id="followup-chat-log" aria-live="polite"></div>
       <form class="chat-form" id="chat-form">
@@ -69,6 +69,6 @@
       </form>
     </section>
   </main>
-  <script src="app.js?v=20261028"></script>
+  <script src="app.js?v=1"></script>
 </body>
 </html>
